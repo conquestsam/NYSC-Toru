@@ -185,17 +185,23 @@ export default function OtherActivities() {
                         </motion.p>
                       )}
                       
-                      {activities[currentSlide]?.activity_date && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.8, delay: 0.6 }}
-                          className="flex items-center justify-center text-lg text-gray-200"
-                        >
-                          <Calendar className="h-5 w-5 mr-2" />
-                          <span>{format(new Date(activities[currentSlide]!.activity_date), 'MMMM dd, yyyy')}</span>
-                        </motion.div>
-                      )}
+                   {(() => {
+  const activity = activities[currentSlide];
+  const date = activity?.activity_date;
+  if (!date) return null;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: 0.6 }}
+      className="flex items-center justify-center text-lg text-gray-200"
+    >
+      <Calendar className="h-5 w-5 mr-2" />
+      <span>{format(new Date(date), 'MMMM dd, yyyy')}</span>
+    </motion.div>
+  );
+})()}
                     </div>
                   </div>
                 </motion.div>
