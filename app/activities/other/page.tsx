@@ -184,6 +184,7 @@ export default function OtherActivities() {
                       )}
                       
                       {activities[currentSlide]?.activity_date && (
+                        {activities[currentSlide]?.activity_date && (
                         <motion.div
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -191,11 +192,7 @@ export default function OtherActivities() {
                           className="flex items-center justify-center text-lg text-gray-200"
                         >
                           <Calendar className="h-5 w-5 mr-2" />
-                          <span>
-  {activities[currentSlide].activity_date 
-    ? format(new Date(activities[currentSlide].activity_date), 'MMMM dd, yyyy')
-    : 'No date available'}
-</span>
+                          <span>{format(new Date(activities[currentSlide]!.activity_date), 'MMMM dd, yyyy')}</span>
                         </motion.div>
                       )}
                     </div>
