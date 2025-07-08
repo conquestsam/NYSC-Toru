@@ -80,6 +80,8 @@ export default function OtherActivities() {
     }
   }
 
+  
+
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-50 py-8">
@@ -184,7 +186,6 @@ export default function OtherActivities() {
                       )}
                       
                       {activities[currentSlide]?.activity_date && (
-                        {activities[currentSlide]?.activity_date && (
                         <motion.div
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
