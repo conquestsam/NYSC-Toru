@@ -191,7 +191,11 @@ export default function OtherActivities() {
                           className="flex items-center justify-center text-lg text-gray-200"
                         >
                           <Calendar className="h-5 w-5 mr-2" />
-                          <span>{format(new Date(activities[currentSlide].activity_date), 'MMMM dd, yyyy')}</span>
+                          <span>
+  {activities[currentSlide].activity_date 
+    ? format(new Date(activities[currentSlide].activity_date), 'MMMM dd, yyyy')
+    : 'No date available'}
+</span>
                         </motion.div>
                       )}
                     </div>
